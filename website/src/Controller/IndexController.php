@@ -1,16 +1,16 @@
 <?php
 
-namespace ihrname\Controller;
+namespace SirMorsel\Controller;
 
-use ihrname\SimpleTemplateEngine;
+use SirMorsel\SimpleTemplateEngine;
 
-class IndexController 
+class IndexController
 {
   /**
    * @var ihrname\SimpleTemplateEngine Template engines to render output
    */
   private $template;
-  
+
   /**
    * @param ihrname\SimpleTemplateEngine
    */
@@ -20,10 +20,16 @@ class IndexController
   }
 
   public function homepage() {
-    echo "INDEX";
+    echo $this->template->render("home.html.php");
+  }
+
+  public function showForum()
+  {
+    echo $this->template->render("forum.html.php");
   }
 
   public function greet($name) {
   	echo $this->template->render("hello.html.php", ["name" => $name]);
   }
+
 }

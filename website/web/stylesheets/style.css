@@ -1,0 +1,7 @@
+.headerGreeting
+{
+  position: absolute;
+  top: 5px;
+  left: 10%;
+  color: red !important;
+}
