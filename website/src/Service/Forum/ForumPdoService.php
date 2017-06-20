@@ -12,6 +12,8 @@ class ForumPdoService implements ForumService
 
   public function savePost($postTitle, $postContent, $user)
   {
+		$timestamp = time();
+		$time = date("d.m.Y H:i ", $timestamp);
       if (!empty($postTitle) && !empty($postContent) && !empty($user))
       {
       $stmtP = $this->pdo->prepare("SELECT id FROM user WHERE email = ?");
@@ -22,9 +24,6 @@ class ForumPdoService implements ForumService
       $returnUserId = $stmtP->fetch();
         if(count($returnUserId) != 0)
         {
-          $timestamp = time();
-          $time = date("d.m.Y H:i ", $timestamp);
-
           $stmt = $this->pdo->prepare("INSERT INTO tbPosts (post_title, post_content, user_id, post_Time) VALUES (?,?,?,?)");
           $stmt->bindValue(1, $postTitle);
           $stmt->bindValue(2, $postContent);

@@ -1,6 +1,6 @@
 <?php
 namespace SirMorsel\Service\Login;
-session_start();
+//session_start();
 class LoginPdoService implements LoginService
 {
 	private $pdo;

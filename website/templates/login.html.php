@@ -1,29 +1,32 @@
 <?php
-//session_start();
- ?>
+    include ("imports.php");
+?>
 <!Doctype>
 <html>
 <head>
 <title>Login Page</title>
 <link href="stylesheets/loginContent.css" rel="stylesheet" type="text/css" media="all">
 <body>
-<h1>Login</h1>
 
+
+<div class="loginBox box_round">
+  <h2>Login Forum</h2>
 	<form action="" method="POST">
 		<label>
-		Email:
-			<input type="email" name="email"  value="<?= (isset($email)) ? htmlspecialchars($email) : "" ?>"/>
+			<input type="email" name="email" class="tb_btn_login_size box_round" placeholder="Email..."  value="<?= (isset($email)) ? htmlspecialchars($email) : "" ?>"/>
 	</label>
+</br>
 	<label>
-	Passwort:
-			<input type="password" name="password"/>
+			<input type="password" class="tb_btn_login_size box_round" placeholder="Passwort..." name="password"/>
 	</label>
-			<input class="btn btn-primary" type="submit" name="login" value="Login"/>
+</br></br>
+			<input class="btn btn-success tb_btn_login_size" type="submit" name="login" value="Login"/>
 		</form>
 
     <form  action="" method="POST">
-      <input class="btn btn-primary" type="submit" name="goToReg" value="Registrieren"/>
+      <input class="btn btn-primary tb_btn_login_size" type="submit" name="goToReg" value="Registrieren"/>
     </form>
+  </div>
 </body>
 </head>
 

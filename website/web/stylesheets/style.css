@@ -103,3 +103,62 @@ footer
   margin-right: 20px;
   margin-bottom: 0%;
 }
+
+.loginBox
+{
+  position: absolute;
+  top: 5%;
+  left: 37.5%;
+  right: 37.5%;
+  width: 25%;
+  height: 25%;
+  min-height: 250px;
+  padding-top: 10px;
+  text-align: center;
+  background-color: #333;
+  color: white;
+}
+
+.title_Login
+{
+  left: 50%;
+  right: 50%;
+}
+
+.tb_btn_login_size
+{
+  color: black;
+  width: 200px;
+  outline: none;
+  border: none;
+  padding-left: 5px;
+}
+
+.registrierenBox
+{
+  position: absolute;
+  top: 5%;
+  left: 37.5%;
+  right: 37.5%;
+  width: 25%;
+  height: 30%;
+  min-height: 300px;
+  padding-top: 10px;
+  text-align: center;
+  background-color: #333;
+  color: white;
+}
+
+.tb_btn_registrieren_size
+{
+  color: black;
+  width: 200px;
+  outline: none;
+  border: none;
+  padding-left: 5px;
+}
+
+.btn_color_black
+{
+  color: black;
+}

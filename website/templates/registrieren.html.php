@@ -1,3 +1,6 @@
+<?php
+    include ("imports.php");
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,17 +8,19 @@
     <title>Registration</title>
   </head>
   <body>
-<h1>Registrieren</h1>
 
+
+<div class="registrierenBox box_round">
+  <h2>Registrieren</h2>
     <form class="" action="" method="post">
-      <input type="text" name="usernameReg" placeholder="Username..."/></br>
-      <input type="email" name="emailReg" placeholder="EMail..."/></br>
-      <input type="password" name="pwdReg" placeholder="Passwort..."/></br>
-      <input type="password" name="pwdRegBest" placeholder="Passwort bestätigen..."/></br>
-      <input type="submit" name="registrieren" value="Registrieren"/>
-      <button name="backRegToLog" value="0">Zurück</button>
+      <input type="text" name="usernameReg" class="tb_btn_registrieren_size box_round" placeholder="Username..."/></br></br>
+      <input type="email" name="emailReg" class="tb_btn_registrieren_size box_round" placeholder="EMail..."/></br></br>
+      <input type="password" name="pwdReg" class="tb_btn_registrieren_size box_round" placeholder="Passwort..."/></br></br>
+      <input type="password" name="pwdRegBest" class="tb_btn_registrieren_size box_round" placeholder="Passwort bestätigen..."/></br></br>
+      <input type="submit" class="btn btn-success btn_color_black" name="registrieren" value="Registrieren"/>
+      <button name="backRegToLog" class="btn btn-primary btn_color_black" value="0">Zurück</button>
     </form>
-
+</div>
   </body>
 </html>
 
