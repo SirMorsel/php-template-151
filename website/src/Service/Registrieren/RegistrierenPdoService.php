@@ -30,11 +30,11 @@ class RegistrierenPdoService implements RegistrierenService
 
 	}
 
-  public function saveUserInDB($newUserEmail, $newUserPassword, $newUserAnzeigename)
+  public function saveUserInDB($newUserEmail, $newUserPassword, $newUserAnzeigename, $newUserPassword2)
   {
       if (!empty($newUserEmail) && !empty($newUserPassword) && !empty($newUserAnzeigename)) {
-      # code...
 
+      if ($newUserPassword == $newUserPassword2) {
       $hash = password_hash($newUserPassword, PASSWORD_DEFAULT);
     //  $newUserPassword = sha1($newUserPassword); //bcrypt
       $stmt = $this->pdo->prepare("INSERT INTO user (email, password, anzeigename) VALUES (?,?,?)");
@@ -42,6 +42,11 @@ class RegistrierenPdoService implements RegistrierenService
       $stmt->bindValue(2, $hash);
       $stmt->bindValue(3, $newUserAnzeigename);
       $stmt->execute();
+    }
+    else {
+      echo "Passwörter stimmen nicht überein.";
+      return false;
+         }
     }
 
   }

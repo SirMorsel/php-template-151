@@ -45,7 +45,7 @@ switch($_SERVER["REQUEST_URI"]) {
 			break;
 
 			case "/home":
-				$ctr = $factory->getIndexController();
+				$ctr = $factory->getForumController(); //getIndexController();
 				if ($_SERVER["REQUEST_METHOD"] == "GET")
 				{
 				$ctr->homepage();

@@ -31,7 +31,7 @@ class RegistrierenController
   	{
     //  var_dump($data);
       //die();
-      $this->registrierenService->saveUserInDB($data["emailReg"], $data["pwdReg"], $data["usernameReg"]);
+      $this->registrierenService->saveUserInDB($data["emailReg"], $data["pwdReg"], $data["usernameReg"], $data["pwdRegBest"]);
   		$this->showRegistrieren(); //Kehrt zu Login zurück
 
   		return;

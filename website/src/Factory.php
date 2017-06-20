@@ -16,8 +16,17 @@ class Factory
 
 	public function getIndexController()
 	{
-		return new Controller\IndexController($this->getTemplateEngine());
+		return new Controller\IndexController($this->getTemplateEngine(), $this->getIndexService());
 	}
+	public function getIndexService()
+	{
+		return new Service\Forum\ForumPdoService($this->getPDO());
+	}
+
+	/*public function getForumController()
+	{
+		return new Controller\ForumController($this->getTemplateEngine());
+	}*/
 
 	public function getPDO()
 	{
@@ -53,12 +62,12 @@ class Factory
 	/***********Bestätigungs Mail*************************************************/
 	public function getMailer()
 	{
-		return \Swift_Mailer::newInstance(
+		return/* \Swift_Mailer::newInstance(
 					 \Swift_SmtpTransport::newInstance("smtp.gmail.com", 465, "ssl")
 					 ->setUsername("gibz.module.151@gmail.com") // https://www.sitepoint.com/sending-email-with-swift-mailer/
-					 ->setPassword("Pe$6A+aprunu"));
+					 ->setPassword("Pe$6A+aprunu"));*/
 
-					/* $transport = Swift_SmtpTransport::newInstance("smtp.gmail.com", 465, "ssl");
+					 $transport = Swift_SmtpTransport::newInstance("smtp.gmail.com", 465, "ssl");
 					 $transport->setUsername("gibz.module.151@gmail.com");
 					 $transport->setPassword("Pe$6A+aprunu");
 
@@ -66,7 +75,7 @@ class Factory
 					 $message->setTo(array("patrick.nibbia@gmail.com"));
 
 					 $mailer = Swift_Mailer::newInstance($transport);
-					 return $mailer->send($message);*/
+					 return $mailer->send($message);
 	}
 
 }

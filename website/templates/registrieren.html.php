@@ -6,9 +6,6 @@
   </head>
   <body>
 <h1>Registrieren</h1>
-<?php include ("stylesheets/imports.php");/*Für Testzwecke*/ ?>
-
-
 
     <form class="" action="" method="post">
       <input type="text" name="usernameReg" placeholder="Username..."/></br>
@@ -26,12 +23,10 @@
 if (isset($_POST['backRegToLog']))
 {
   $_POST['backRegToLog'] =1;
-  echo "testy";
   header('Location: /login');
 }
 
 if (isset($_POST['registrieren'])) {
-echo "juhu";
 header('Location: /login');
 }
 ?>
