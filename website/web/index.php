@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 use SirMorsel\Service\Login\LoginPdoService;
 use SirMorsel\Service\Registrieren\RegistrierenPdoService;
@@ -17,7 +18,16 @@ switch($_SERVER["REQUEST_URI"]) {
 		echo "Test blabla";
 		break;
 	case "/":
-		$factory->getIndexController()->homepage();
+		$ctr = $factory->getIndexController();
+		if (isset($_POST["sendPost"]))
+		{
+			$_POST["email"] = $_SESSION["email"];
+			$ctr->home($_POST);
+		}
+		else
+		{
+			$ctr->homepage();
+		}
 		break;
 
 	case "/login":
@@ -45,7 +55,7 @@ switch($_SERVER["REQUEST_URI"]) {
 			break;
 
 			case "/home":
-				$ctr = $factory->getForumController(); //getIndexController();
+				$ctr = $factory->getIndexController(); //getIndexController();
 				if ($_SERVER["REQUEST_METHOD"] == "GET")
 				{
 				$ctr->homepage();

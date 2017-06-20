@@ -9,7 +9,7 @@
 
 .postForm
 {
-  position: absolute;
+  position: fixed;
   right: 2% !important;
   top: 25% !important;
   background-color: #333;
@@ -70,7 +70,7 @@ textarea
 
 footer
 {
-  position: absolute;
+  position: fixed;
   bottom: 0% !important;
   height: 3%;
   width: 100%;

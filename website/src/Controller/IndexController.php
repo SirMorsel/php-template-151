@@ -25,6 +25,17 @@ class IndexController
   public function homepage()
   {
     echo $this->template->render("home.html.php", ["showposts" => $this->forumService->showPosts()]);
+
+  }
+
+  public function home(array $data)
+  {
+
+      $this->forumService->savePost($data['titlePost'], $data['contentPost'], $data["email"]);
+      $this->homepage();
+
+   		return;
+
   }
 
 

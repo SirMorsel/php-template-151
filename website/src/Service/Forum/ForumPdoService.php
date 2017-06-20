@@ -14,21 +14,21 @@ class ForumPdoService implements ForumService
   {
       if (!empty($postTitle) && !empty($postContent) && !empty($user))
       {
-      $stmtU = $this->pdo->prepare("SELECT id FROM users  WHERE  email = ?");
+      $stmtP = $this->pdo->prepare("SELECT id FROM user WHERE email = ?");
       $stmtP->bindValue(1, $user);
 
       $stmtP->execute();
 
       $returnUserId = $stmtP->fetch();
-        if(count($returnData) != 0)
+        if(count($returnUserId) != 0)
         {
           $timestamp = time();
           $time = date("d.m.Y H:i ", $timestamp);
 
-          $stmt = $this->pdo->prepare("INSERT INTO tbPosts (post_title, post_content, user_id) VALUES (?,?,?,?)");
+          $stmt = $this->pdo->prepare("INSERT INTO tbPosts (post_title, post_content, user_id, post_Time) VALUES (?,?,?,?)");
           $stmt->bindValue(1, $postTitle);
           $stmt->bindValue(2, $postContent);
-          $stmt->bindValue(3, $returnUserId);
+          $stmt->bindValue(3, $returnUserId[0]);
           $stmt->bindValue(4, $time);
           $stmt->execute();
         }

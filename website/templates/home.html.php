@@ -1,5 +1,4 @@
 <?php
-
 $timestamp = time();
 $time = date("d.m.Y H:i ", $timestamp);
  ?>
@@ -16,7 +15,7 @@ $time = date("d.m.Y H:i ", $timestamp);
   </br>
     <div class="headerGreeting">
     </br></br></br>
-      Hallo:<?php //echo $_SESSION["email"]; ?></div>
+      Hallo:<?php echo $_SESSION["email"]; ?></div>
     <?php include ("imports.php"); ?>
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
@@ -66,6 +65,14 @@ if (isset($_POST['btnLogout']))
   {
     echo "Sie sind nun ausgelogt";
     session_destroy();
+  }
+
+  if (isset($_POST['sendPost']))
+  {
+    if (!empty($_POST['titlePost']) && !empty($_POST['contentPost']) && !empty($_SESSION["email"]))
+    {
+      $saveposts;
+    }
   }
 
  ?>
