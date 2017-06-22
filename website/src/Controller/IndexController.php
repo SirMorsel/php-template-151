@@ -5,6 +5,7 @@ namespace SirMorsel\Controller;
 use SirMorsel\SimpleTemplateEngine;
 
 use SirMorsel\Service\Forum\ForumService;
+use SirMorsel\Service\Forum\ForumPdoService;
 
 class IndexController
 {
@@ -35,6 +36,12 @@ class IndexController
       $this->homepage();
 
    		return;
+
+  }
+
+  function aktivateAccountController($securetyKey)
+  {
+    $this->forumService->aktivateAccount($securetyKey);
 
   }
 

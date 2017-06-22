@@ -61,6 +61,23 @@ class ForumPdoService implements ForumService
       return $display;
 
    }
+
+	 function aktivateAccount($securetyKey)
+   {
+     if ($securetyKey == "")
+     {
+       echo "Fehler bei der Aktivierung";
+     }
+     else
+     {
+       $stmt = $this->pdo->prepare("UPDATE user SET isActivated = 1  WHERE securetyKey = '$securetyKey'");
+       $stmt->execute();
+			/* $stmt = $this->pdo->prepare("SELECT user SET isActivated = 1  WHERE securetyKey = '$securetyKey'");
+       $stmt->execute();*/
+       echo $securetyKey;
+     }
+
+   }
 }
 
 ?>

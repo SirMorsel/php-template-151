@@ -49,7 +49,7 @@ class Factory
 	/***********Registrieren******************************************************/
 	public function getRegistrierenController()
 	{
-		return new Controller\RegistrierenController($this->getTemplateEngine(), $this->getRegistrierenService());
+		return new Controller\RegistrierenController($this->getTemplateEngine(), $this->getRegistrierenService(), $this->getMailer());
 	}
 
 	public function getRegistrierenService()
@@ -57,25 +57,15 @@ class Factory
 		return new Service\Registrieren\RegistrierenPdoService($this->getPDO());
 	}
 
-
-
-	/***********Bestätigungs Mail*************************************************/
 	public function getMailer()
-	{
-		return/* \Swift_Mailer::newInstance(
-					 \Swift_SmtpTransport::newInstance("smtp.gmail.com", 465, "ssl")
-					 ->setUsername("gibz.module.151@gmail.com") // https://www.sitepoint.com/sending-email-with-swift-mailer/
-					 ->setPassword("Pe$6A+aprunu"));*/
+      {
+          return \Swift_Mailer::newInstance(
+                  \Swift_SmtpTransport::newInstance($this->config['mailer']['host'], $this->config['mailer']['port'], $this->config['mailer']['security'])
+                  ->setUsername($this->config['mailer']['user'])
+                  ->setPassword($this->config['mailer']['password'])
+                  );
+      }
 
-					 $transport = Swift_SmtpTransport::newInstance("smtp.gmail.com", 465, "ssl");
-					 $transport->setUsername("gibz.module.151@gmail.com");
-					 $transport->setPassword("Pe$6A+aprunu");
 
-					 $message = Swift_Message::newInstance();
-					 $message->setTo(array("patrick.nibbia@gmail.com"));
-
-					 $mailer = Swift_Mailer::newInstance($transport);
-					 return $mailer->send($message);
-	}
 
 }

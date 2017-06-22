@@ -30,17 +30,20 @@ class RegistrierenPdoService implements RegistrierenService
 
 	}
 
-  public function saveUserInDB($newUserEmail, $newUserPassword, $newUserAnzeigename, $newUserPassword2)
+  public function saveUserInDB($newUserEmail, $newUserPassword, $newUserAnzeigename, $newUserPassword2, $securetyKey)
   {
       if (!empty($newUserEmail) && !empty($newUserPassword) && !empty($newUserAnzeigename)) {
 
-      if ($newUserPassword == $newUserPassword2) {
+      if ($newUserPassword == $newUserPassword2)
+      {
+
       $hash = password_hash($newUserPassword, PASSWORD_DEFAULT);
     //  $newUserPassword = sha1($newUserPassword); //bcrypt
-      $stmt = $this->pdo->prepare("INSERT INTO user (email, password, anzeigename) VALUES (?,?,?)");
+      $stmt = $this->pdo->prepare("INSERT INTO user (email, password, anzeigename, securetyKey) VALUES (?,?,?,?)");
       $stmt->bindValue(1, $newUserEmail);
       $stmt->bindValue(2, $hash);
       $stmt->bindValue(3, $newUserAnzeigename);
+      $stmt->bindValue(4, $securetyKey);
       $stmt->execute();
     }
     else {

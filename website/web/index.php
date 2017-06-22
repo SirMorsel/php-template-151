@@ -68,8 +68,14 @@ switch($_SERVER["REQUEST_URI"]) {
 
 	default:
 		$matches = [];
-		if(preg_match("|^/hello/(.+)$|", $_SERVER["REQUEST_URI"], $matches)) {
+		if(preg_match("|^/hello/(.+)$|", $_SERVER["REQUEST_URI"], $matches))
+		{
 			(new SirMorsel\Controller\IndexController($tmpl))->greet($matches[1]);
+			break;
+		}
+		if(preg_match("|^/activate=(.+)$|", $_SERVER["REQUEST_URI"], $matches))
+		{
+			$factory->getIndexController()->aktivateAccountController($matches[1]);
 			break;
 		}
 		echo "Not Found";
