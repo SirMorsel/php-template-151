@@ -12,8 +12,7 @@ class ForumPdoService implements ForumService
 
   public function savePost($postTitle, $postContent, $user)
   {
-		$timestamp = time();
-		$time = date("d.m.Y H:i ", $timestamp);
+
       if (!empty($postTitle) && !empty($postContent) && !empty($user))
       {
       $stmtP = $this->pdo->prepare("SELECT id FROM user WHERE email = ?");
@@ -24,11 +23,10 @@ class ForumPdoService implements ForumService
       $returnUserId = $stmtP->fetch();
         if(count($returnUserId) != 0)
         {
-          $stmt = $this->pdo->prepare("INSERT INTO tbPosts (post_title, post_content, user_id, post_Time) VALUES (?,?,?,?)");
+          $stmt = $this->pdo->prepare("INSERT INTO tbPosts (post_title, post_content, user_id, post_Time) VALUES (?,?,?,CURRENT_TIMESTAMP)");
           $stmt->bindValue(1, $postTitle);
           $stmt->bindValue(2, $postContent);
           $stmt->bindValue(3, $returnUserId[0]);
-          $stmt->bindValue(4, $time);
           $stmt->execute();
         }
 
@@ -36,9 +34,8 @@ class ForumPdoService implements ForumService
 }
     function showPosts()
    {
-     $stmt = $this->pdo->prepare("SELECT p.post_title, p.post_content, p.post_Time , u.email FROM tbPosts p INNER JOIN user u ON u.id = p.user_id WHERE id = user_id ORDER BY id DESC");
+     $stmt = $this->pdo->prepare("SELECT p.post_title, p.post_content, p.post_Time , u.displayName FROM tbPosts p INNER JOIN user u ON u.id = p.user_id WHERE id = user_id ORDER BY id DESC");
      $stmt->execute();
-		 //$result = mysqli_query($stmt);
 
      $display = "";
 
@@ -52,7 +49,7 @@ class ForumPdoService implements ForumService
        $display .= "<div class='contentOut'>" . $row['post_content'] . "</div>";
 			 $display .= "</br>";
 
-       $display .= "<div class='timeMailOut'>". "<i>" . $row['email'] . "</i>" . " " . $row['post_Time'] . "</div>";
+       $display .= "<div class='timeMailOut'>". "<i>" . $row['displayName'] . "</i>" . " " . $row['post_Time'] . "</div>";
 
 		 }
 
