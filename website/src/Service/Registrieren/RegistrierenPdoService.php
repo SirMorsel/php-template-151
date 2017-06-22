@@ -39,7 +39,7 @@ class RegistrierenPdoService implements RegistrierenService
 
       $hash = password_hash($newUserPassword, PASSWORD_DEFAULT);
     //  $newUserPassword = sha1($newUserPassword); //bcrypt
-      $stmt = $this->pdo->prepare("INSERT INTO user (email, password, displayName, securetyKey) VALUES (?,?,?,?)");
+      $stmt = $this->pdo->prepare("INSERT INTO user (email, password, anzeigename, securetyKey) VALUES (?,?,?,?)");
       $stmt->bindValue(1, $newUserEmail);
       $stmt->bindValue(2, $hash);
       $stmt->bindValue(3, $newUserAnzeigename);
