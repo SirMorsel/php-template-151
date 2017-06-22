@@ -22,7 +22,7 @@ class LoginPdoService implements LoginService
 	if ($stmt->rowCount() === 1)
 		{
 
-			$stmtP = $this->pdo->prepare("SELECT password FROM user WHERE email =?");
+			$stmtP = $this->pdo->prepare("SELECT password FROM user WHERE email =? AND isActivated = 1");
 			$stmtP->bindValue(1, $username);
 
 			$stmtP->execute();
