@@ -70,11 +70,10 @@ class ForumPdoService implements ForumService
      }
      else
      {
-       $stmt = $this->pdo->prepare("UPDATE user SET isActivated = 1  WHERE securetyKey = '$securetyKey'");
+			 echo $securetyKey;
+       $stmt = $this->pdo->prepare("UPDATE user SET isActivated = 1, securetyKey =''  WHERE securetyKey = '$securetyKey'");
        $stmt->execute();
-			/* $stmt = $this->pdo->prepare("SELECT user SET isActivated = 1  WHERE securetyKey = '$securetyKey'");
-       $stmt->execute();*/
-       echo $securetyKey;
+			 echo $securetyKey;
      }
 
    }
