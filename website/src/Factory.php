@@ -23,10 +23,6 @@ class Factory
 		return new Service\Forum\ForumPdoService($this->getPDO());
 	}
 
-	/*public function getForumController()
-	{
-		return new Controller\ForumController($this->getTemplateEngine());
-	}*/
 
 	public function getPDO()
 	{
@@ -65,7 +61,4 @@ class Factory
                   ->setPassword($this->config['mailer']['password'])
                   );
       }
-
-
-
 }
