@@ -12,6 +12,7 @@ class LoginPdoService implements LoginService
 
 	public function authenticate($username, $password)
 	{
+		//var_dump($username);
 		$stmt = $this->pdo->prepare("SELECT * FROM user WHERE email =?");
 		$stmt->bindValue(1, $username);
 		$stmt->execute();
@@ -32,10 +33,11 @@ class LoginPdoService implements LoginService
 				$success = password_verify($password, $returnData['password']);
 
 				//var_dump($password);
-
+				//var_dump($success, " success");
 				if($success)
 				{
 					$_SESSION["email"] = $username;
+					//var_dump($_SESSION["email"]);
 				}
 
 				return $success;

@@ -29,7 +29,7 @@ $time = date("d.m.Y H:i ", $timestamp);
             </button>
             <a class="navbar-brand" href="#">Home</a>
           </div>
-            <form class="navbar-form navbar-right" method="post" action="/login">
+            <form class="navbar-form navbar-right" method="post" action="/logout">
               <input type="submit" class="btn btn-danger" name="btnLogout" value="Logout"/>
             </form>
           </div><!-- /.navbar-collapse -->
@@ -75,19 +75,6 @@ if (isset($_POST['btnLogout']))
   {
     echo "Sie sind nun ausgelogt";
     session_destroy();
-  }
-
-  if (isset($_POST['sendPost']))
-  {
-    if (!empty($_POST['titlePost']) && !empty($_POST['contentPost']) && !empty($_SESSION["email"]))
-    {
-      $saveposts;
-    }
-  }
-
-  if ($_SESSION["email"] == "patrick.nibbia@gmail.com" && isset($_POST['btnDeletePost']))
-  {
-    $deleteposts;
   }
 
  ?>

@@ -17,16 +17,28 @@ switch($_SERVER["REQUEST_URI"]) {
 	case "/testroute":
 		echo "Test blabla";
 		break;
+
 	case "/":
 		$ctr = $factory->getIndexController();
+
 		if (isset($_POST["sendPost"]) || isset($_POST["btnDeletePost"]))
 		{
-			$_POST["email"] = $_SESSION["email"];
-			$ctr->home($_POST);
+			$data = $_POST;
+			$data["email"] = $_SESSION["email"];
+			$ctr->home($data);
 		}
 		else
 		{
-			$ctr->homepage();
+
+			//var_dump($_SESSION);
+			if(isset($_SESSION["email"]))
+			{
+				$ctr->homepage();
+			}
+			else
+			{
+				header("location: /login");
+			}
 		}
 		break;
 
@@ -34,13 +46,19 @@ switch($_SERVER["REQUEST_URI"]) {
 		$ctr = $factory->getLoginController();
 		if ($_SERVER["REQUEST_METHOD"] == "GET")
 		{
-		$ctr->showLogin();
+			$ctr->showLogin();
 		}
 		else
 		{
-		$ctr->login($_POST);
+			$ctr->login($_POST);
 		}
 		break;
+	case "/logout":
+
+		session_destroy();
+		header("Location: /login");
+		break;
+
 
 		case "/registrieren":
 			$ctr = $factory->getRegistrierenController();
