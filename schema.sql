@@ -20,8 +20,13 @@ CREATE TABLE `tbPosts` (
 
 INSERT INTO `tbPosts` (`post_id`, `post_title`, `post_content`, `user_id`, `post_Time`) VALUES
 (28,	'Test vrom an other person',	'asdasdasd',	41,	'2017-06-22 17:42:05'),
-(37,	'Test',	'Hello world',	42,	'2017-06-24 08:47:59'),
-(38,	'Test with long post',	'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Ste',	42,	'2017-06-24 08:50:52');
+(47,	'Test',	'Hello World',	47,	'2017-06-24 12:40:43'),
+(48,	'Information',	'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Ste',	47,	'2017-06-24 12:41:02'),
+(49,	'An other Test',	'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Ste',	47,	'2017-06-24 12:41:11'),
+(50,	'An other Test',	'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Ste',	47,	'2017-06-24 12:44:56'),
+(51,	'An other Test',	'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Ste',	47,	'2017-06-24 12:45:52'),
+(52,	'An other Test',	'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Ste',	47,	'2017-06-24 12:46:17'),
+(53,	'An other Test',	'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Ste',	47,	'2017-06-24 12:46:23');
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -38,6 +43,6 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `email`, `password`, `displayName`, `securetyKey`, `isActivated`, `resetPassword`) VALUES
 (41,	'patrick.nibbia@bluewin.ch',	'$2y$10$fKhPzXzGZhaRqOxFY758Q.wc9/XsgcOvu.Fa0hQisYH7/UTB/sUK.',	'Hitman',	'',	1,	''),
-(42,	'patrick.nibbia@gmail.com',	'$2y$10$AucoRSmhXU/ZXLTa6P5s3eF9C83LN6Xu6u3wgtZgjvHvLyUzMS3uy',	'Man of Mayhem',	'',	1,	'');
+(47,	'patrick.nibbia@gmail.com',	'$2y$10$5rvAJJ8GUPCaS0MI4FBr0.YxMRBP6tZ7libSmbYQOCVsv4zJxRLyu',	'Man of Mayhem',	'',	1,	'');
 
--- 2017-06-24 10:32:09
+-- 2017-06-24 13:21:41
