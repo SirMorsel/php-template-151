@@ -43,7 +43,9 @@ class LoginPdoService implements LoginService
 			}
 			else
 			{
-				print "No User found";
+				echo "<div class='error_box box_round'>";
+				echo "No User found";
+				echo "</div>";
 				return false;
 			}
 

@@ -34,7 +34,7 @@ class ForumPdoService implements ForumService
 }
     function showPosts()
    {
-     $stmt = $this->pdo->prepare("SELECT p.post_title, p.post_content, p.post_Time , u.anzeigename FROM tbPosts p INNER JOIN user u ON u.id = p.user_id WHERE id = user_id ORDER BY post_id ");
+     $stmt = $this->pdo->prepare("SELECT p.post_title, p.post_content, p.post_Time , u.displayName FROM tbPosts p INNER JOIN user u ON u.id = p.user_id WHERE id = user_id ORDER BY post_id ");
      $stmt->execute();
 
      $display = "";
@@ -49,7 +49,7 @@ class ForumPdoService implements ForumService
        $display .= "<div class='contentOut'>" . $row['post_content'] . "</div>";
 			 $display .= "</br>";
 
-       $display .= "<div class='timeMailOut'>". "<i>" . $row['anzeigename'] . "</i>" . " " . $row['post_Time'] . "</div>";
+       $display .= "<div class='timeMailOut'>". "<i>" . $row['displayName'] . "</i>" . " " . $row['post_Time'] . "</div>";
 
 		 }
 

@@ -17,7 +17,7 @@
 	</label>
 </br>
 	<label>
-			<input type="password" class="tb_btn_login_size box_round" placeholder="Passwort..." name="password"/>
+			<input type="password" class="tb_btn_login_size box_round" placeholder="Passwort..." name="password" />
 	</label>
 </br></br>
 			<input class="btn btn-success tb_btn_login_size" type="submit" name="login" value="Login"/>
