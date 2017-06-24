@@ -31,10 +31,28 @@ class LoginController
   echo $this->template->render("login.html.php");
   }
 
+  public function showPwdReset()
+  {
+    echo $this->template->render("passwordReset.html.php");
+  }
+
+  public function reset(array $data)
+  {
+      var_dump($data);
+    if (!array_key_exists("emailReg", $data))
+  	{
+      var_dump($data);
+      $securetyKeyPwdReset = sha1(mt_rand(10000, 99999).time().$data["emailForPwdReset"]);
+      $this->LoginService->pwdReset($data["emailForPwdReset"]);
+      $this->sendMailToReset($data["emailForPwdReset"], $securetyKeyPwdReset);
+  		$this->showLogin(); //Kehrt zu Login zurück
+
+  		return;
+  	}
+  }
 
 
-
-  public  function login(array $data)
+    function login(array $data)
   {
   	if (!array_key_exists("email", $data) OR !array_key_exists("password", $data))
   	{
@@ -43,22 +61,21 @@ class LoginController
   	}
   	if($this->loginService->authenticate($data["email"], $data["password"]))
   	{
-  		/*$_SESSION["email"] = $data["email"];*/
   		header('Location: /');
   	}
   	else
   	{
       echo $this->template->render("login.html.php", ["email" => $data["email"]]);
   	}
+  }
 
-  	/*if ($stmt->rowCount() === 1)
-  	{
-  		echo "Login Successful";
-  	}
-  	else
-  	{
-  		echo "Login Failed";
-  	}*/
+  function sendMailToReset($mail, $passwordResetToken)
+  {
+    $message = (new \Swift_Message('Passwort Vergessen'))
+                      ->setFrom(['patrick.nibbia@gmail.com' => 'noreply'])
+                      ->setTo([$mail])
+                      ->setBody("Oeffnen Sie diesen Link um Ihr Passwort zurueck zusetzten https://localhost/activate=" . $passwordResetToken);
 
+                      $this->mailer->send($message);
   }
 }

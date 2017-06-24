@@ -11,7 +11,7 @@ $time = date("d.m.Y H:i ", $timestamp);
 
   </head>
   <body>
-    <h1>Forum</h1>
+    <h1>Forum (by SirMorsel)</h1>
   </br>
     <div class="headerGreeting">
     </br></br></br>
@@ -45,13 +45,23 @@ $time = date("d.m.Y H:i ", $timestamp);
     </br>
       <input type="submit" class="btn btn-warning btn_Width_Medium" name="sendPost" value="Posten"/>
     </form>
+    <hr>
+    <?php if ($_SESSION["email"] == "patrick.nibbia@gmail.com")
+    {?>
+    <b class="titlepost">Post löschen (Admin)</b>
+    <form action="" method="post">
+      <input type="text" class="tb_Title" name="titlePostDelete" placeholder="Titel des zu löschenden Posts...."/>
+    </br></br>
+      <input type="submit" class="btn btn-danger btn_Width_Medium" name="btnDeletePost" value="Delete Posts">
+    </form>
+    <?php } ?>
 </div>
+
 
 <div class="postContainer box_round">
   <h3 class="titlepost">Forum</h3>
   <hr>
 <?php
-  //echo $time;
   echo $showposts;
 ?>
 </div>
@@ -73,6 +83,11 @@ if (isset($_POST['btnLogout']))
     {
       $saveposts;
     }
+  }
+
+  if ($_SESSION["email"] == "patrick.nibbia@gmail.com" && isset($_POST['btnDeletePost']))
+  {
+    $deleteposts;
   }
 
  ?>

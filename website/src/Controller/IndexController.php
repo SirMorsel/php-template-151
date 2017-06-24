@@ -31,8 +31,14 @@ class IndexController
 
   public function home(array $data)
   {
-
+    if(isset($data["sendPost"]))
+    {
       $this->forumService->savePost($data['titlePost'], $data['contentPost'], $data["email"]);
+    }
+      if ($data["email"] == "patrick.nibbia@gmail.com" && isset($data['btnDeletePost']))
+      {
+        $this->forumService->deletePost($data['titlePostDelete']);
+      }
       $this->homepage();
 
    		return;

@@ -19,7 +19,7 @@ switch($_SERVER["REQUEST_URI"]) {
 		break;
 	case "/":
 		$ctr = $factory->getIndexController();
-		if (isset($_POST["sendPost"]))
+		if (isset($_POST["sendPost"]) || isset($_POST["btnDeletePost"]))
 		{
 			$_POST["email"] = $_SESSION["email"];
 			$ctr->home($_POST);
@@ -55,7 +55,7 @@ switch($_SERVER["REQUEST_URI"]) {
 			break;
 
 			case "/home":
-				$ctr = $factory->getIndexController(); //getIndexController();
+				$ctr = $factory->getIndexController();
 				if ($_SERVER["REQUEST_METHOD"] == "GET")
 				{
 				$ctr->homepage();
@@ -65,6 +65,18 @@ switch($_SERVER["REQUEST_URI"]) {
 				$ctr->home($_POST);
 				}
 				break;
+
+				case "/passwordReset":
+					$ctr = $factory->getLoginController();
+					if ($_SERVER["REQUEST_METHOD"] == "GET")
+					{
+					$ctr->showPwdReset();
+					}
+					else
+					{
+					$ctr->reset($_POST);
+					}
+					break;
 
 	default:
 		$matches = [];
@@ -78,5 +90,6 @@ switch($_SERVER["REQUEST_URI"]) {
 			$factory->getIndexController()->aktivateAccountController($matches[1]);
 			break;
 		}
+
 		echo "Not Found";
 }

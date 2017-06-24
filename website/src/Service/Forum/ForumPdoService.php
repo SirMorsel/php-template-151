@@ -59,6 +59,13 @@ class ForumPdoService implements ForumService
 
    }
 
+	 function deletePost($titlePostDelete)
+	 {
+		 $stmt = $this->pdo->prepare("DELETE FROM tbPosts WHERE post_title = '$titlePostDelete'");
+		 $stmt->bindValue(1, $titlePostDelete);
+		 $stmt->execute();
+	 }
+
 	 function aktivateAccount($securetyKey)
    {
      if ($securetyKey == "")

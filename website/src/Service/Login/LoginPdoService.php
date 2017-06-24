@@ -12,13 +12,10 @@ class LoginPdoService implements LoginService
 
 	public function authenticate($username, $password)
 	{
-		//$password = sha1($password); //bcrypt //// PASSWORD_DEFAULT
-		$stmt = $this->pdo->prepare("SELECT * FROM user WHERE email =?"); //AND password=? //////
+		$stmt = $this->pdo->prepare("SELECT * FROM user WHERE email =?");
 		$stmt->bindValue(1, $username);
-		//$stmt->bindValue(2, $password); /////
 		$stmt->execute();
 
-// http://fluuux.de/2014/10/wie-man-sensible-daten-einer-datenbank-speichert-aes_encrypt/
 	if ($stmt->rowCount() === 1)
 		{
 
@@ -46,7 +43,7 @@ class LoginPdoService implements LoginService
 			}
 			else
 			{
-				print "No User fosdfund";
+				print "No User found";
 				return false;
 			}
 
@@ -57,6 +54,28 @@ class LoginPdoService implements LoginService
 			/*echo "Login Failed";*/
 			return false;
 		}
+
+	}
+
+	function pwdReset($username, $passwordReset)
+	{
+
+		$stmt = $this->pdo->prepare("SELECT * FROM user WHERE email =?");
+		$stmt->bindValue(1, $username);
+		$stmt->execute();
+
+		if ($stmt->rowCount() === 1)
+			{
+				$stmtReset = $this->pdo->prepare("UPDATE user SET password ='$passwordReset' WHERE email = '$username' ");
+				$stmtReset->bindValue(1, $passwordReset);
+				$stmtReset->bindValue(2, $username);
+				$stmtReset->execute();
+			}
+		else
+			{
+				return false;
+			}
+
 
 	}
 

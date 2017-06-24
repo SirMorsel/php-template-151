@@ -26,10 +26,7 @@
     <form  action="" method="POST">
       <input class="btn btn-primary tb_btn_login_size" type="submit" name="goToReg" value="Registrieren"/>
     </form>
-
-    <form  action="" method="POST">
-      <input class="btn btn-warning tb_btn_login_size" type="submit" name="goToForgetPwd" value="Passwort vergessen"/>
-    </form>
+      <a href="/passwordReset"><button class="btn btn-warning tb_btn_login_size" type="submit" name="goToForgetPwd" value="">Passwort vergessen</button></a>
   </div>
 </body>
 </head>
@@ -41,9 +38,5 @@
 if (isset($_POST['goToReg']))
 {
   header('Location: /registrieren');
-}
-if (isset($_POST['goToForgetPwd']))
-{
-  header('Location: /passwortVergessen');
 }
  ?>

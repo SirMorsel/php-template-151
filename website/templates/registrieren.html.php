@@ -18,20 +18,15 @@
       <input type="password" name="pwdReg" class="tb_btn_registrieren_size box_round" placeholder="Passwort..."/></br></br>
       <input type="password" name="pwdRegBest" class="tb_btn_registrieren_size box_round" placeholder="Passwort bestätigen..."/></br></br>
       <input type="submit" class="btn btn-success btn_color_black" name="registrieren" value="Registrieren"/>
-      <button name="backRegToLog" class="btn btn-primary btn_color_black" value="0">Zurück</button>
     </form>
+    <a href="/login"><button name="backRegToLog" class="btn btn-primary btn_color_black" value="0">Zurück</button></a>
 </div>
   </body>
 </html>
 
 <?php
-if (isset($_POST['backRegToLog']))
+if (isset($_POST['registrieren']))
 {
-  $_POST['backRegToLog'] =1;
   header('Location: /login');
-}
-
-if (isset($_POST['registrieren'])) {
-header('Location: /login');
 }
 ?>

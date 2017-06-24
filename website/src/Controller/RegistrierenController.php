@@ -56,41 +56,6 @@ class RegistrierenController
 
   }
 
-  /***********Bestätigungs Mail*************************************************/
-	/*public function getMailer()
-	{
-		return/* \Swift_Mailer::newInstance(
-					 \Swift_SmtpTransport::newInstance("smtp.gmail.com", 465, "ssl")
-					 ->setUsername("gibz.module.151@gmail.com") // https://www.sitepoint.com/sending-email-with-swift-mailer/
-					 ->setPassword("Pe$6A+aprunu"));*/
-
-           /*
-           $transport = Swift_SmtpTransport::newInstance("smtp.gmail.com", 465, "ssl");
-           $transport->setUsername("gibz.module.151@gmail.com");
-           $transport->setPassword("Pe$6A+aprunu");
-
-           $message = Swift_Message::newInstance();
-           $message->setTo(array("patrick.nibbia@gmail.com"));
-
-           $mailer = Swift_Mailer::newInstance($transport);
-           return $mailer->send($message);
-
-
-					 $transport = Swift_SmtpTransport::newInstance($this->config['mailer']['host'], $this->config['mailer']['port'], $this->config['mailer']['security']);
-					 $transport->setUsername($this->config['mailer']['user']);
-					 $transport->setPassword($this->config['mailer']['password']);
-
-					 $message = Swift_Message::newInstance();
-					 $message->setTo(array("patrick.nibbia@gmail.com"));
-
-					 $mailer = Swift_Mailer::newInstance($transport);
-					 return $mailer->send($message);
-	}
-*/
-  /******************************/
-
-
-
 function sendMail($mail, $activationToken)
 {
   $message = (new \Swift_Message('Registrierung'))
