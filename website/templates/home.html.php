@@ -11,11 +11,11 @@ $time = date("d.m.Y H:i ", $timestamp);
 
   </head>
   <body>
-    <h1>Forum (by SirMorsel)</h1>
+    <h3><i>Forum (by SirMorsel)</i></h3>
   </br>
     <div class="headerGreeting">
     </br></br></br>
-      Hallo:<?php echo $_SESSION["email"]; ?></div>
+      Hallo: <?php echo $_SESSION["email"]; ?></div>
     <?php include ("imports.php"); ?>
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">

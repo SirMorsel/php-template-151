@@ -1,3 +1,10 @@
+h3 {
+  font-size: 44px;
+  background: -webkit-linear-gradient(#eee, #850000, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .headerGreeting
 {
   position: absolute;
